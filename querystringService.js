@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('myapp').service('querystring', Querystring);
+    angular.module('baseApp').service('querystring', Querystring);
     
     function Querystring() {
 
