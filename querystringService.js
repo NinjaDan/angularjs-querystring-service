@@ -1,7 +1,9 @@
 (function () {
     'use strict';
 
-    angular.module('baseApp').service('querystring', function () {
+    angular.module('myapp').service('querystring', Querystring);
+    
+    function Querystring() {
 
         this.getParam = function (key) {
             /**
@@ -11,7 +13,7 @@
             * @description Gets a querystring value based on the key passed in
             * @param {string} key querystring parameter key, of a key/value pair. Required
             * @returns {string} querystring value of key (eg. 1-11NAVKX)
-            * @example URL: https://www.lta.org.uk/competitions/playerprofile/?pid=1-11NAVKX <br/> <code>querystring.getParam(pid)</code>
+            * @example URL: https://www.danielalvares.com/projects/?pid=1-11NAVKX <br/> <code>querystring.getParam(pid)</code>
             */
             var val = {};
             var regex = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
@@ -30,7 +32,7 @@
             * @description Sets (or resets) a querystring key/value pair, <i>appending after the '/#/!/?' to prevent page refresh</i>
             * @param {string} key querystring parameter key, of a key/value pair. Required
             * @param {string} value new querystring parameter value, of a key/value pair. Required
-            * @returns {string} full URL. eg. http://www.lta.org.uk/coach-teach/courses/#!/?<b>results=22</b>
+            * @returns {string} full URL. eg. http://www.danielalvares.com/projects/#!/?<b>results=22</b>
             * @example <code>querystring.setParam('results', '22')</code> will return the example above
             */
             var url = window.location.href;
@@ -59,7 +61,7 @@
             *              If the key does not exist, it will add it to the URL.
             * @param {string} key querystring parameter key, of a key/value pair. Required
             * @param {string} value additional querystring parameter value, of a key/value pair. Required
-            * @returns {string} full URL. eg. http://www.lta.org.uk/coach-teach/courses/#!/?<b>provider=1/2</b>
+            * @returns {string} full URL. eg. http://www.danielalvares.com/projects/#!/?<b>category=1/2</b>
             * @example The following code will return the example above <br/> <code>querystring.addParam('provider', '1');<br/> querystring.addParam('provider', '2');</code>
             */
             var url = window.location.hash;
@@ -131,7 +133,7 @@
             }
         };
 
-    });
+    };
 
 }());
 /**
