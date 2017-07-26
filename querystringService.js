@@ -131,6 +131,8 @@
             if (!key) {
                 window.location.hash = '#';
             }
+            
+            return window.location.href;
         };
 
     };
